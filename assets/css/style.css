@@ -1,3 +1,10 @@
+/* Definizione variabili per light e dark theme */
+:root {
+    --primaryColor: #1d1a1a;
+    --backgroundColor: #e5e5e5;
+}
+
+
 * {
     margin: 0 px;
     padding: 0 px;
@@ -8,19 +15,75 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #1d1a1a;
+    background-color: var(--backgroundColor);
+    color: var(--primaryColor);
 }
 
-.text {
-    margin-top: 20px;
-    color: #e5e5e5;
+
+/* Style dello switch light/dark theme */
+.switchContainer {
+    display: flex;
+    align-items: center;
+    order: 1;
+    font-style: italic;
 }
 
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 35px;
+    margin : 25px 15px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 35px;
+}
+
+/* Style del pallino dello switch*/
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+
+/* Style del counter */
 #titolo {
+    margin-top: 10px;
     font-size: 40px;
 }
 
 #numero {
+    margin-top: 20px;
     font-size: 40px;
 }
 
@@ -35,14 +98,15 @@ body {
     font-size: 16px;
     font-weight: 600;
     padding: 10px 30px;
-    border: 2px solid #e5e5e5;
+    color: var(--backgroundColor);
+    border: 2px solid var(--primaryColor);
     border-radius: 50px;
-    background-color: #e5e5e5;
+    background-color: var(--primaryColor);
 }
 
 .buttons:hover {
-    background-color: #1d1a1a;
-    color: #e5e5e5;
+    background-color:var(--backgroundColor);
+    color: var(--primaryColor);
     cursor: pointer;
 }
 
@@ -50,15 +114,15 @@ body {
     margin: 0 10px;
     font-size: 16px;
     font-weight: 500;
-    color: #e5e5e5;
+    color: var(--primaryColor);
     padding: 10px 25px;
-    border: 2px solid #e5e5e5;
+    border: 2px solid var(--primaryColor);
     border-radius: 50px;
-    background-color: #1d1a1a;
+    background-color:var(--backgroundColor);
 }
 
 .reset:hover {
-    color: lightcoral;
-    border-color: lightcoral;
+    color: red;
+    border-color: red;
     cursor: pointer;
 }

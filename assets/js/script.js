@@ -1,28 +1,28 @@
-//crea un titolo h1 con il testo Counter
-let titolo = createElement('h1', 'Counter:', 'titolo', 'text', document.body);
+//Titolo h1 con il testo Counter
+let titolo = createElement('h1', 'Counter:', 'titolo', '', document.body);
 
-//crea il numero inizializzato a 0
-let numero = createElement('h2', '0', 'numero', 'text', document.body); 
+//Numero del counter inizializzato a 0
+let numero = createElement('h2', '0', 'numero', '', document.body); 
 
-//crea un contenitore per i bottoni
+//Contenitore per i bottoni
 let buttonContainer = createElement('div', '', '', 'button-container', document.body);
 
-//crea il bottone + 
+//Bottone + 
 let plusButton = createElement('button', '+', '', 'buttons', buttonContainer);
 
-//crea il bottone reset
+//Bottone reset
 let resetButton = createElement('button', 'Reset', '', 'reset', buttonContainer);
 
-//crea il bottone -
+//Bottone -
 let minusButton = createElement('button', '-', '', 'buttons', buttonContainer);
 
 
-//event listener sul bottone + per incrementare il numero
+//Event listener sul bottone + per incrementare il numero
 plusButton.addEventListener("click", function () {
     numero.innerHTML++;
 });
 
-//event listener al bottone - per decrementare il numero
+//Event listener al bottone - per decrementare il numero
 minusButton.addEventListener("click", function () {
     numero.innerHTML--;
     if (numero.innerHTML < 0) {
@@ -31,7 +31,7 @@ minusButton.addEventListener("click", function () {
     }
 });
 
-//event listener al bottone reset per resettare il numero
+//Event listener sul bottone reset per resettare il numero
 resetButton.addEventListener("click", function () {
     if (confirm('Sei sicuro di voler resettare il contatore?')) {
         numero.innerHTML = 0;
@@ -41,12 +41,13 @@ resetButton.addEventListener("click", function () {
 
 /**
  * Crea un elemento HTML e lo aggiunge al parent.
+ * Tutti i parametri sono opzionali tranne il tag.
  * 
  * @param {string} tag - Il tag html dell'elemento da creare.
- * @param {string} text - Il testo da inserire nell'elemento, lasciare vuoto se non presente.
- * @param {string} id - L'id dell'elemento, lasciare vuoto se non presente.
- * @param {string} classList - La classe dell'elemento, lasciare vuoto se non presente.
- * @param {HTMLElement} parent - Il genitore dell'elemento, lasciare vuoto se non presente.
+ * @param {string} text - Il testo da inserire nell'elemento.
+ * @param {string} id - L'id dell'elemento.
+ * @param {string} classList - La classe o le classi dell'elemento.
+ * @param {HTMLElement} parent - Il genitore dell'elemento.
  * @returns {HTMLElement} - L'elemento creato.
  */
 function createElement(tag, text, id, classList, parent) {
@@ -58,3 +59,16 @@ function createElement(tag, text, id, classList, parent) {
 
     return element;
 }
+
+
+// Switch per cambiare il tema della pagina
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('change', function() {
+    if (themeToggle.checked) {
+        document.documentElement.style.setProperty('--primaryColor', '#e5e5e5');
+        document.documentElement.style.setProperty('--backgroundColor', '#1d1a1a');
+    } else {
+        document.documentElement.style.setProperty('--primaryColor', '#1d1a1a');
+        document.documentElement.style.setProperty('--backgroundColor', '#e5e5e5');
+    }
+});
