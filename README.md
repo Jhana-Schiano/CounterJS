@@ -18,11 +18,7 @@ Puoi provare l'applicazione al seguente link: https://jhana-schiano.github.io/Co
 ## Installazione
 Non è necessaria alcuna installazione. Basta visitare il link sopra indicato per utilizzare il Counter direttamente dal browser.
 
-Se desideri eseguire il progetto in locale:
-Clona il repository:
+Se desideri eseguire il progetto in locale puoi clonare il repository:
    ```bash
    git clone https://github.com/Jhana-Schiano/CounterJS.git
    ```
-
-
-
