@@ -1,3 +1,6 @@
+//creazione di una variabile per salvare il numero del contatore
+let counter = 0;
+
 //Titolo h1 con il testo Counter
 let titolo = createElement('h1', 'Counter:', 'titolo', '', document.body);
 
@@ -19,22 +22,26 @@ let minusButton = createElement('button', '-', '', 'buttons', buttonContainer);
 
 //Event listener sul bottone + per incrementare il numero
 plusButton.addEventListener("click", function () {
-    numero.innerHTML++;
+    counter++;
+    numero.innerHTML = counter;
 });
 
 //Event listener al bottone - per decrementare il numero
 minusButton.addEventListener("click", function () {
-    numero.innerHTML--;
+    counter--;
+    numero.innerHTML= counter;
     if (numero.innerHTML < 0) {
         alert('Non puoi andare sotto 0');
-        numero.innerHTML = 0;
+        counter= 0;
+        numero.innerHTML = counter;
     }
 });
 
 //Event listener sul bottone reset per resettare il numero
 resetButton.addEventListener("click", function () {
     if (confirm('Sei sicuro di voler resettare il contatore?')) {
-        numero.innerHTML = 0;
+        counter = 0;
+        numero.innerHTML = counter;
     }
 });
 
